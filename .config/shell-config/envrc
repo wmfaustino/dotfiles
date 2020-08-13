@@ -4,18 +4,9 @@ export TERMINAL="tilix"
 #export BROWSER="brave"
 #export READER="zathura"
 
-# ~/:
-export HOME_CONFIG="$HOME/.config"
-
-export HOME_BIN="$HOME/.local/bin" 
-export HOME_DATA="$HOME/.local/share"
-export HOME_CACHE="$HOME/.local/cache"
-
-export SHELL_CONFIG="${HOME_CONFIG}/shell_config"
-export ZDOTDIR="${HOME_CONFIG}/zsh"
-
 # $PATH
 export PATH=$PATH:"$HOME"/.local/bin/
+export PATH=$PATH:"$HOME"/.local/projects/diversos/
 
 
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"

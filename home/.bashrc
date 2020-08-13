@@ -119,3 +119,6 @@ fi
 /usr/bin/keychain $HOME/.ssh/id_ed25519_wmfaustino_github &>/dev/null
 source $HOME/.keychain/$HOSTNAME-sh
 ### End-Keychain ###
+
+source "$HOME/.config/shell-config/envrc"
+source "$HOME/.config/shell-config/aliasrc"
