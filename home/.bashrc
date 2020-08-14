@@ -111,14 +111,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-#eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
-#export SSH_AUTH_SOCK
-### START-Keychain ###
-# Let  re-use ssh-agent and/or gpg-agent between logins
-/usr/bin/keychain $HOME/.ssh/id_ed25519_wmfaustino_github &>/dev/null
-source $HOME/.keychain/$HOSTNAME-sh
-### End-Keychain ###
-
-source "$HOME/.config/shell-config/envrc"
-source "$HOME/.config/shell-config/aliasrc"
+export TESTELOCAL="testelocal"
+export TESTELOCAL2="testelocal2"

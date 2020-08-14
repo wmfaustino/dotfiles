@@ -19,5 +19,5 @@ alias  cpv='rsync -ah --info=progress2'
 alias  dt='mv --force -t ~/.local/share/Trash'
 
 # Shortcuts
-alias config='cd ~/.config'
-alias local='cd ~/.local'
+#alias config='cd ~/.config'
+#alias local='cd ~/.local'
