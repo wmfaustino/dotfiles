@@ -11,13 +11,14 @@ alias  lss='du -sh * | sort -h'
 alias  mounted="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 alias  mounted_mac='mount | grep -E ^/dev | column -t'
 
-alias  grep='ag'
+#alias  grep='ag'
 
-alias  hist='history|grep'
+#alias  hist='history|grep'
 
 alias  cpv='rsync -ah --info=progress2'
 alias  dt='mv --force -t ~/.local/share/Trash'
 
 # Shortcuts
-#alias config='cd ~/.config'
-#alias local='cd ~/.local'
+alias config='cd ~/.config'
+alias local='cd ~/.local'
+alias dotfiles='cd ~/.local/share/dotfiles'
