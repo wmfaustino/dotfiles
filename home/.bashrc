@@ -111,5 +111,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export TESTELOCAL="testelocal"
-export TESTELOCAL2="testelocal2"
+
+##################################################
+### START-Keychain ###
+# Let  re-use ssh-agent and/or gpg-agent between logins
+/usr/bin/keychain $HOME/.ssh/id_dsa
+source $HOME/.keychain/$HOSTNAME-sh
+### End-Keychain ###
+
+
