@@ -1,43 +1,7 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
-# Aliases ---------------------------------------
-alias la='ls -la --color=auto'
-alias lla='ls -lah --color=auto'
-alias ll='ls -lh --color=auto'
-alias ls='ls --color=auto'
-alias l='ls --color=auto'
-alias grep='grep --color=auto'
-# Load aliases and shortcuts if existent.
-#[ -f "~/.config/shell-config/aliasrc" ] && source "~/.config/shell-config/aliasrc"
-
-# History ---------------------------------------
-[[ ! -d "${HOME}/.cache" ]] && mkdir -p "${HOME}/.cache"
-[[ ! -f "${HOME}/.cache/zsh.history" ]] && 
-
-HISTFILE="~/.cache/zsh.history"
-HISTSIZE=20000
-SAVEHIST=20000
-
-setopt appendhistory autocd
 
 # variables -------------------------------------
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# support colors in less ------------------------
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Plugins ----------------------------------------
 if [[ ! -d ~/.zplug ]]; then
@@ -66,7 +30,59 @@ if ! zplug check; then
     zplug install
 fi
 
-zplug load --verbose
+zplug load 1> /dev/null 2> stdout 
+
+# compinstall -----------------------------------
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' menu select=0
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle :compinstall filename "~/.config/zsh/.zshrc"
+
+_comp_options+=(globdots) # Include hidden files.
+
+autoload -Uz compinit
+compinit
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+# Aliases ---------------------------------------
+alias la='ls -la --color=auto'
+alias lla='ls -lah --color=auto'
+alias ll='ls -lh --color=auto'
+alias ls='ls --color=auto'
+alias l='ls --color=auto'
+alias grep='grep --color=auto'
+# Load aliases and shortcuts if existent.
+#[ -f "~/.config/shell-config/aliasrc" ] && source "~/.config/shell-config/aliasrc"
+
+# History ---------------------------------------
+[[ ! -d "${HOME}/.cache" ]] && mkdir -p "${HOME}/.cache"
+[[ ! -f "${HOME}/.cache/zsh_history" ]] && <> "${HOME}/.cache/zsh_history"
+
+HISTFILE="${HOME}/.cache/zsh_history"
+HISTSIZE=20000
+SAVEHIST=20000
+
+setopt SHARE_HISTORY
+setopt autocd
+
+
+# support colors in less ------------------------
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 # vi mode ---------------------------------------
 bindkey -v
@@ -94,18 +110,6 @@ export KEYTIMEOUT=30
 ## PROMPT=\$vcs_info_msg_0_'%# '
 # zstyle ':vcs_info:git:*' formats '%b'
 
-# compinstall -----------------------------------
-zstyle ':completion:*' completer _expand _complete _ignored
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' menu select=0
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename "~/.config/zsh/.zshrc"
-
-_comp_options+=(globdots) # Include hidden files.
-
-autoload -Uz compinit
-compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
