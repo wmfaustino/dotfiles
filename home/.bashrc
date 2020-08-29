@@ -115,8 +115,8 @@ fi
 ##################################################
 ### START-Keychain ###
 # Let  re-use ssh-agent and/or gpg-agent between logins
-/usr/bin/keychain $HOME/.ssh/id_dsa
-source $HOME/.keychain/$HOSTNAME-sh
+#/usr/bin/keychain $HOME/.ssh/id_ed25519_wmfaustino_github 1> /dev/null 2>1&
+#source $HOME/.keychain/$HOSTNAME-sh
 ### End-Keychain ###
 
 

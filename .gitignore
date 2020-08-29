@@ -1,5 +1,10 @@
 .config/nvim/plugged/*
 
-.config/zsh/powerlevel10k
-.config/zsh/zsh-autosuggestions
+.config/zsh/plugged/dracula
+.config/zsh/plugged/fast-syntax-highlighting
+.config/zsh/plugged/powerlevel10k
+.config/zsh/plugged/zsh-autosuggestions
+.config/zsh/plugged/zsh-completions
+.config/zsh/plugged/zsh-history-substring-search
+
 

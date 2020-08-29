@@ -3,6 +3,16 @@
 alias vi='nvim'
 alias  mkdir='mkdir -p'
 
+# ls 
+# (used args)
+# -l                        use a long listing format
+# --color='always'          colorize the output;
+# -a, --all                 do not ignore entries starting with .
+# -A, --almost-all          do not list implied . and ..
+# -h, --human-readable      with -l and -s, print sizes like 1K 234M 2G etc.
+# --group-directories-first group directories before files;
+# -t                        sort by modification time, newest first
+# -r, --reverse             reverse order while sorting
 alias  l='ls -1Ft --group-directories-first --color'
 alias  la='ls -1FAt --group-directories-first --color'
 alias ll='ls -lhrtF --group-directories-first --color'
