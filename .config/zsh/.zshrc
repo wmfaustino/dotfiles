@@ -65,6 +65,7 @@ ALIASES=(
   ls='ls --color=auto'
   l='ls --color=auto'
   grep='grep --color=auto'
+  ssid='sudo iw dev wlp2s0b1 info' # sudo iwconfig | grep ESSID
 )
 
 for _alias in "${ALIASES[@]}"; do
@@ -75,7 +76,7 @@ done
 #[ -f "~/.config/shell-config/aliasrc" ] && source "~/.config/shell-config/aliasrc"
 #https://gnunn1.github.io/tilix-web/manual/vteconfig/
 # support colors in less ------------------------
-[[ ! -r "${ZDOTDIR}" ]] || source 
+#[[ ! -r "${ZDOTDIR}" ]] || source 
 
 
 autoload -Uz compinit
