@@ -26,9 +26,12 @@ _install_dotfiles()(
 
   for src in ${!dirs[@]}; do
     for dotfile in $src/*; do
+      dest="${dirs[$src]}"
       
-      echo $src/${dotfile##*/}
-      echo "${dirs[$src]}/${dotfile##*/}"
+      ln -sfv $dotfile $dest 
+      
+      #echo $dotfile
+      #echo $dest
       echo
     done
   done
@@ -36,6 +39,7 @@ _install_dotfiles()(
 
 _install_dotfiles 
 
+      #echo $src/${dotfile##*/}
 #for i in "${@}"; do
 #
 #  src_src_dirs="${i}"
