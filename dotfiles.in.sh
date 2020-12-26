@@ -6,7 +6,7 @@
 #  author : Wilson Faustino                            |
 #  e-mail : <open source (a) wmfaustino dev>           |
 #  site   : http://wmfaustino.dev                      |
-#  version: 2.0.0                                      |
+#  version: 2.0.1                                      |
 #  date   : 26/12/2020                                 |
 #  usage  : ./dotfiles.in.sh                           |
 #                                                      |
@@ -32,7 +32,7 @@ _create_backup(){
   local backup_dir="${XDG_CONFIG_HOME:-$HOME/.config}/bkp"
   mkdir -p "$backup_dir"
 
-  cp -Rblp "$dotfile_dest_path" "$backup_dir" && rm -rf "$dotfile_dest_path"
+  cp -RbLp "$dotfile_dest_path" "$backup_dir" && rm -rf "$dotfile_dest_path"
 
   printf "Dotfile Backup: %s\n\n" "${backup_dir}/${dotfile##*/}"
 
