@@ -6,84 +6,65 @@
 #  author : Wilson Faustino                            |
 #  e-mail : <open source (a) wmfaustino dev>           |
 #  site   : http://wmfaustino.dev                      |
-#  version: 1.0.1                                      |
-#  date   : 13/08/2020                                 |
+#  version: 2.0.0                                      |
+#  date   : 26/12/2020                                 |
 #  usage  : ./dotfiles.in.sh                           |
+#                                                      |
+#  description:                                        |
+#    - creates a symlink between between all dotfiles  |
+#      and the expected destination directory;         |
+#    - creates a backup beforeb if dotfile already     |
+#      exists                                          |
 #                                                      |
 #------------------------------------------------------+
 #
 
+#---------- GLOBAL VARIABLES
 declare -Arg dirs=(
   ["$PWD/home"]="$HOME"
   ["$PWD/.config"]="$HOME/.config"
 )
 
-# echo "${src_dirs[$PWD/home]}"
+#---------- FUNCTIONS
+_create_backup(){
 
+  #local dotfile="$1"
+  local backup_dir="${XDG_CONFIG_HOME:-$HOME/.config}/bkp"
+  mkdir -p "$backup_dir"
 
-_install_dotfiles()(
+  cp -Rblp "$dotfile_dest_path" "$backup_dir" && rm -rf "$dotfile_dest_path"
+
+  printf "Dotfile Backup: %s\n\n" "${backup_dir}/${dotfile##*/}"
+
+}
+
+_main()(
   shopt -s dotglob
 
+  #  $src => $PWD/.config
   for src in ${!dirs[@]}; do
+    
+  # $dest_dir => $HOME/.config
+    dest_dir="${dirs[$src]}"
+
+  #    $dotfile => $PWD/.config/alacritty
     for dotfile in $src/*; do
-      dest="${dirs[$src]}"
       
-      ln -sfv $dotfile $dest 
+  #  $dotfile_dest_path => $HOME/.config/alacritty
+      dotfile_dest_path="${dest_dir}/${dotfile##*/}" 
       
-      #echo $dotfile
-      #echo $dest
-      echo
+  #  if dotfiles already exists, create a copy before overwriting
+      [[ -e $dotfile_dest_path ]] && _create_backup
+
+  #  install dotfile
+     ln -sfv $dotfile $dest_dir
+
     done
   done
+
+  exit 0
 )
 
-_install_dotfiles 
+#---------- ENTRY POINT
 
-      #echo $src/${dotfile##*/}
-#for i in "${@}"; do
-#
-#  src_src_dirs="${i}"
-#  dest="${src_dirs[${i%/*}]}" #/${i##*/}"
-#    
-#  ln -sfv "${src_src_dirs}" "${dest}"
-   
-   # ln -s ~/.local/share/dotfiles/.config/i3 ~/.config
-   #ln -sfv [target file] [Symbolic filename]
- 
-#ln [OPTION]... -t DIRECTORY TARGET...
-#done
-# ------- FUNCTIONS
-#function installDotfiles()(
-#
-#  shopt -s dotglob
-#                     # src_dir keys: .config and home
-#  for i in "${!src_dirs[@]}"; do
-#     
-#    #makeSymlink "$i"/* # * are files and src_directories
-#    echo "$i"/* # * are files and src_directories
-#    
-#  done
-#
-#  exit 0
-#)
-
-#function makeSymlink(){
-#           
-#  for i in "${@}"; do
-# 
-#    src_src_dirs="${i}"
-#    dest="${src_dirs[${i%/*}]}" #/${i##*/}"
-#    
-#    ln -sfv "${src_src_dirs}" "${dest}"
-#   
-#   # ln -s ~/.local/share/dotfiles/.config/i3 ~/.config
-#   #ln -sfv [target file] [Symbolic filename]
-# 
-##ln [OPTION]... -t DIRECTORY TARGET...
-#done
-#
-#  return 0
-#}
-
-# ENTRY POINT ---------------------------------------------
-#installDotfiles
+_main
