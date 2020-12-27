@@ -17,6 +17,8 @@ if [[ -r "${USER_CACHE}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 fi
 
 #-----[ Basic Setup ]-----+
+typeset -U path # man zshbuiltins: "keep only the first occurrence of each duplicated value" 
+
 _comp_options+=(globdots) # Include hidden files.
 setopt autocd
 
