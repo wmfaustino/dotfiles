@@ -1,27 +1,17 @@
 " Basic settings
+let mapleader = " "
 
-set nocompatible
-set mouse=a
 filetype plugin on " required by nerdcommenter
 syntax on
-set ignorecase
-set smartcase
-set encoding=utf-8
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set number relativenumber
-set termguicolors
-set t_Co=256
-set background=dark    " Setting dark mode
-set wildmode=longest,list,full " Autocompletion
-set splitbelow splitright " Fix splitting
-set clipboard+=unnamedplus " Use system clipboard
-set noswapfile
-set modifiable " Allow Nerdtree to create files
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'gruvbox-community/gruvbox'
+"https://github.com/glacambre/firenvim
+
 Plug 'vim-airline/vim-airline'
 " Plug 'terroo/terroo-colors'
 Plug 'ajmwagar/vim-deus'
@@ -42,49 +32,40 @@ Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 " Plug 'junegunn/seoul257.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ntpeters/vim-better-whitespace'
+"
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'mbbill/undotree'
+" https://github.com/tpope/vim-fugitive
+"
+
 call plug#end()
 
-"colorscheme dracula
-" colorscheme terroo-colors
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv
+
+" fun! TrimWhitspace()
+"     let l:save = winsaveview()
+"     keeppatterns %s/\s\+$//e
+"     call winsaveview(l:save)
+" endfun
+
+" augroup THE_PRIMEAGEN
+"     autocmd!
+"     autocmd BufWritePre * :call TrimWhitspace()
+" augroup END
+
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-colorscheme deus
-let g:deus_termcolors=256
-let g:airline_theme='deus'
-" let g:airline_theme='terrooairline'
-"let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1 
 
 " Vim Emmet
 let g:user_emmet_leader_key=','
 
 " Vim Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
-
-" NERDTree
-autocmd vimenter * NERDTree "open a NERDTree automatically when vim starts up
-map <C-n> :NERDTreeToggle<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-" nerdtree-git-plugin
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 
 " Vim Hexokinase
