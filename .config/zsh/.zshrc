@@ -83,9 +83,9 @@ done
 # --- asdf
 ASDF_DATA_DIR=/home/wmf/.asdf
 
-. $HOME/.asdf/asdf.sh
+. $ASDF_DATA_DIR/asdf.sh
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DATA_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
