@@ -121,5 +121,5 @@ fi
 
 ASDF_DATA_DIR=/home/wmf/.asdf
 
- . "${ASDF_DATA_DIR}/asdf.sh"
- . "${ASDF_DATA_DIR}/completions/asdf.bash"
+ . ${ASDF_DATA_DIR}/asdf.sh
+ . ${ASDF_DATA_DIR}/completions/asdf.bash
