@@ -1,1 +1,3 @@
-require('nvim-lspconfig')
+require("utils")
+require('plugins')
+require("basic")

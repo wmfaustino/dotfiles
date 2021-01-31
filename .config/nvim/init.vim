@@ -19,6 +19,9 @@ Plug 'Shougo/neosnippet-snippets'
 
 Plug 'mbbill/undotree'
 
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+
 "Plug 'tpope/vim-endwise' " helps to end certain structures automatically
 "Plug 'rstacruz/vim-closer' " Closes brackets. Only works when you press Enter.
 Plug 'cohama/lexima.vim'
@@ -43,6 +46,7 @@ nnoremap <leader>sv :so %
 command! Format execute 'lua vim.lsp.buf.formatting()'
 
 " -----------------------------------------------------------------------------
+lua require 'init'
 
 " move visually selected lines up or down
 " nnoremap <leader>k :m .-2<CR>==
