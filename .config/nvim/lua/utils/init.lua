@@ -1,7 +1,6 @@
-require("utils.set_option")
-
+Option = require('utils.set_option')
 
 
 Vim = {
-    Option = Option,
+    Option = Option
 }

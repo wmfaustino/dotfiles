@@ -57,3 +57,28 @@ nnoremap <C-k> :m .-2<CR>==
 nnoremap <C-j> :m .+1<CR>==
 vnoremap <C-k> :m '<-2<CR>gv=gv
 vnoremap <C-j> :m '>+1<CR>gv=gv
+ 
+" -----------------------------------------------------------------------------
+" => theme 
+" -----------------------------------------------------------------------------
+if !has('gui_running')
+  set t_Co=256
+endif
+
+" => color 
+set background=dark
+colorscheme minimalist
+
+" => lightline 
+" -- INSERT -- is unnecessary anymore because the mode information is
+"  displayed in the statusline.
+"  to get rid of it
+set noshowmode
+
+ let g:lightline = {
+       \ 'colorscheme': 'material',
+       \ }
+" -----------------------------------------------------------------------------
+
+" You can get Lua syntax highlighting inside .vim files by putting 
+let g:vimsyn_embed = 'l'
