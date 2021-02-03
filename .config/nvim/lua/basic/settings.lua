@@ -1,5 +1,4 @@
---let mapleader = "\<space>"
---vim.g.mapleader = " "
+vim.g.mapleader = " "
 
 local indent =4
 
@@ -39,7 +38,15 @@ local options_table = {
     {"buffer", "softtabstop", indent},    -- if non-zero, number of spaces to insert for a <Tab>
     {"buffer", "shiftwidth", indent},     -- number of spaces used for each step of (auto)indent
     {"global", "smarttab", true},         -- a <Tab> in an indent inserts 'shiftwidth' spaces 
-    {"buffer", "path", "=.,,**"}
+    {"buffer", "path", "=.,,**"},
+    -- splits
+    {'global', 'splitbelow', true},       -- a new window is put below the current one
+    {'global', 'splitright', true},       -- a new window is put right of the current one
+    {'global', 'inccommand', 'split'},    -- shows partial off-screen results in a preview window
+    
+    {'global', 'fillchars', 'vert:\\'},   -- Removes split separators
+    -- undotree
+    {'global', 'undofile', true}          -- Nvim by default stores undo in ~/.local/share/nvim/undo and auto-creates the path (if undofile is enabled).
 }
 
 Option.set(options_table)

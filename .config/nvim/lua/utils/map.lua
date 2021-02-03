@@ -14,31 +14,22 @@ Keymap.is_table = function(t)
         error('options should be a type of "table"')
         return
     end
-
-
-Keymap.args = function(t)
-    is_table(t)
-
-    local args = {}
-    local num_args = ''
-    
-    t[1] = 'global' and num_args = 4 or num_args = 5
-    
-    for i =2, num_args, 1 do
-        args[i]
+end
 
 Keymap.set = function(keybindings_table)
 
     for key, t in pairs(keybindings_table) do
-        if type(t) ~= 'table' then
-            error('options should be a type of "table"')
-            return
-        end
-       
+
+        Keymap.is_table(t)
+        
         scope = t[1]
 
-        Keymap.scopes[scope](t[2],t[3],t[4],t[5])
-    end 
+        if scope == 'global' then
+            Keymap.scopes[scope](t[2],t[3],t[4],t[5])
+        else
+            Keymap.scopes[scope](t[2],t[3],t[4],t[5],t[6])
+        end
+    end
 end
 
 return Keymap

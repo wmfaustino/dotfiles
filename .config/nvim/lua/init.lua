@@ -1,3 +1,3 @@
 require('utils')
-require('plugins')
+require('plugin')
 require('basic')

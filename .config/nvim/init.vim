@@ -46,7 +46,7 @@ nnoremap <leader>sv :so %
 command! Format execute 'lua vim.lsp.buf.formatting()'
 
 " -----------------------------------------------------------------------------
-lua require 'init'
+lua require('init')
 
 " move visually selected lines up or down
 " nnoremap <leader>k :m .-2<CR>==
