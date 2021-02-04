@@ -8,9 +8,9 @@ Option.set({
     { 'global', 'showmode', false, {} }
 })
 
-Var.set({
-    { 'global', 'lightline', { ['colorscheme'] = 'material' }  }
-})
+-- Var.set({
+--     { 'global', 'lightline', { ['colorscheme'] = 'material' }  }
+-- })
 --" => lightline 
 
 -- let g:lightline = {
