@@ -32,6 +32,7 @@ paq 'tpope/vim-commentary'
 paq 'Yggdroot/indentLine'       -- Show the visual mark on indendation blocks ┆
 -- paq 'mg979/vim-visual-multi', {'branch': 'master'}
 
+paq 'norcalli/nvim-colorizer.lua'
 --paq {'srrethy/vim-hexokinase', do = 'make hexokinase' }
 
 paq 'tweekmonster/startuptime.vim'
