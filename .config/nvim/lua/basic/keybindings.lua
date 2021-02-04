@@ -1,5 +1,6 @@
+Keymap.set({
+    { 'global', 'n', '<leader;', 'A;<esc>', { noremap = true }},
 
-local keybindings = {
     -- move visually lines up or down
     {"global", "n", "<C-k>", ":m .-2<CR>==", { noremap = true }},
     {"global", "n", "<C-j>", ":m .+1<CR>==", { noremap = true }},
@@ -20,15 +21,4 @@ local keybindings = {
     {'global', 'n', '<C-Right>', ':vertical resize -3<CR>', { noremap = true }},
     {'global', 'n', '<C-Up>', ':vertical resize +3<CR>', { noremap = true }},
     {'global', 'n', '<C-Down>', ':vertical resize -3<CR>', { noremap = true }},
-
-    -- undotree
-    {"buffer", 0, "n", "<leader>u", ":UndotreeToggle<CR>", { noremap = true }}
-
-    -- neosnippet.vim
-    {'global','i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {}},
-    {'global','s', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {}},
-    {'global','x', '<C-k>', '<Plug>(neosnippet_expand_or_target)', {}},
-    -- {'global', 'i', '<expr><TAB>', 'pumvisible() ? "\<C-n>"'}
-}
-
-Keymap.set(keybindings)
+})

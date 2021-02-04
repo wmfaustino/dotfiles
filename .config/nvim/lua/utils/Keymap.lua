@@ -9,18 +9,11 @@ Keymap.scopes = {
     buffer = vim.api.nvim_buf_set_keymap
 }
 
-Keymap.is_table = function(t)
-    if type(t) ~= 'table' then
-        error('options should be a type of "table"')
-        return
-    end
-end
-
 Keymap.set = function(keybindings_table)
 
     for key, t in pairs(keybindings_table) do
 
-        Keymap.is_table(t)
+        is_table(t)
         
         scope = t[1]
 

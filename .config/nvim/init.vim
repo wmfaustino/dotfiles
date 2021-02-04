@@ -37,11 +37,11 @@ call plug#end()
 " -----------------------------------------------------------------------------
 " => basic config
 " -----------------------------------------------------------------------------
-nnoremap <leader>; A;<esc>
-nnoremap <silent> <leader>n :nohlsearch
+" nnoremap <leader>; A;<esc>
+" nnoremap <silent> <leader>n :nohlsearch
 
-nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim
-nnoremap <leader>sv :so %
+" nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim
+" nnoremap <leader>sv :so %
 
 command! Format execute 'lua vim.lsp.buf.formatting()'
 
@@ -61,23 +61,23 @@ lua require('init')
 " -----------------------------------------------------------------------------
 " => theme 
 " -----------------------------------------------------------------------------
-if !has('gui_running')
-  set t_Co=256
-endif
+" if !has('gui_running')
+"   set t_Co=256
+" endif
 
-" => color 
-set background=dark
-colorscheme minimalist
+" " => color 
+" set background=dark
+" colorscheme minimalist
 
 " => lightline 
 " -- INSERT -- is unnecessary anymore because the mode information is
 "  displayed in the statusline.
 "  to get rid of it
-set noshowmode
+" set noshowmode
 
- let g:lightline = {
-       \ 'colorscheme': 'material',
-       \ }
+ " let g:lightline = {
+ "       \ 'colorscheme': 'material',
+ "       \ }
 " -----------------------------------------------------------------------------
 
 " You can get Lua syntax highlighting inside .vim files by putting 

@@ -1,7 +1,10 @@
-Option = require('utils.set_option')
-Keymap = require('utils.map')
+helpers = require('utils.helpers')
+Option = require('utils.Option')
+Keymap = require('utils.Keymap')
+Var = require('utils.Var')
 
-Vim = {
-    Option = Option,
-    Keymap = Keymap
-}
+-- Vim = {
+--     Option = Option,
+--     Keymap = Keymap,
+--     Var = Var
+-- }

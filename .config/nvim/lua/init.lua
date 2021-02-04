@@ -1,3 +1,4 @@
 require('utils')
-require('plugin')
+require('theme')
 require('basic')
+require('plugin')

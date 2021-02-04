@@ -1,8 +1,11 @@
-vim.g.mapleader = " "
+
+Var.set({
+    { 'global', 'mapleader', " " }
+})
 
 local indent =4
 
-local options_table = {
+Option.set({
     {"global", "shell", "bash"},
     {"global", "errorbells", false},      -- Don't play sound on error
     {"global", "exrc", true},             -- enable reading .vimrc/.exrc/.gvimrc in the current directory
@@ -45,11 +48,8 @@ local options_table = {
     {'global', 'inccommand', 'split'},    -- shows partial off-screen results in a preview window
     
     {'global', 'fillchars', 'vert:\\'},   -- Removes split separators
-    -- undotree
-    {'global', 'undofile', true}          -- Nvim by default stores undo in ~/.local/share/nvim/undo and auto-creates the path (if undofile is enabled).
-}
+})
 
-Option.set(options_table)
 
 --set fileencoding=utf-8	        " character encoding for the current file
 -- "syntax on                      " Enable defautl highlight

@@ -13,10 +13,8 @@ Option.scopes = {
 Option.set = function(options_table)
 
     for key, t in pairs(options_table) do
-        if type(t) ~= 'table' then
-		error('options should be a type of "table"')
-		return
-        end
+
+        is_table(t)
 
         scope = t[1]
         option =t[2] 
