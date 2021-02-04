@@ -9,7 +9,7 @@
 if vim.fn.has('conceal') == 1 then
 
     Option.set({
-        {"window", "conceallevel", 1},
+        {"window", "conceallevel", 2},
         {"window", "concealcursor", "niv"}
     })
 
