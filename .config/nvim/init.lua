@@ -6,6 +6,17 @@ paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
 -- Add your packages
 
+-- --- lsp
+paq 'neovim/nvim-lspconfig'
+-- --- completion
+paq 'nvim-lua/completion-nvim'
+paq 'Shougo/neosnippet.vim'
+paq 'Shougo/neosnippet-snippets'
+-- paq 'nvim-lua/lsp_extensions.nvim'
+
+-- --- treesitter
+paq { 'nvim-treesitter/nvim-treesitter'} --, hook=vim.cmd[':TSUpdate'] } -- We recommend updating the parsers on update
+
 -- --- color schemes
 paq 'dikiaap/minimalist'
 paq 'itchyny/lightline.vim'
@@ -13,13 +24,6 @@ paq 'itchyny/lightline.vim'
 -- --- file tree
 paq 'kyazdani42/nvim-web-devicons' -- for file icons
 paq 'kyazdani42/nvim-tree.lua'
-
--- --- lsp
-paq 'neovim/nvim-lspconfig'
-paq 'nvim-lua/completion-nvim'
-paq 'Shougo/neosnippet.vim'
-paq 'Shougo/neosnippet-snippets'
--- paq 'nvim-lua/lsp_extensions.nvim'
 
 paq 'mbbill/undotree'
 
@@ -33,7 +37,6 @@ paq 'Yggdroot/indentLine'       -- Show the visual mark on indendation blocks â”
 -- paq 'mg979/vim-visual-multi', {'branch': 'master'}
 
 paq 'norcalli/nvim-colorizer.lua'
---paq {'srrethy/vim-hexokinase', do = 'make hexokinase' }
 
 paq 'tweekmonster/startuptime.vim'
 

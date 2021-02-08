@@ -1,6 +1,13 @@
 -- -----------------------------------------------------------------------------
 -- => completion-nvim
 -- -----------------------------------------------------------------------------
+local on_attach = require'completion'.on_attach
+
+Language.on_attach(on_attach)
+-- require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+-- require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
+-- require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+-- require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
 
 Var.set({
 
@@ -22,7 +29,7 @@ Var.set({
     { 'global', "completion_auto_change_source", 1 },
     
     --let g:completion_confirm_key , "\<C-y>"
-    { 'global', "completion_confirm_key", "<C-y>" },
+    -- { 'global', "completion_confirm_key", "<C-y>" },
     
     --let g:completion_matching_strategy_list , ['exact', 'substring', 'fuzzy', 'all']
     { 'global', "completion_matching_strategy_list", {'exact', 'substring', 'fuzzy'} },
