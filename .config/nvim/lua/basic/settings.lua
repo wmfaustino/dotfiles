@@ -52,7 +52,7 @@ Option.set({
 
     -- buffers
     { 'global', 'hidden'        , true       }, -- Allow multiple hidden buffers
-    { 'buffer', 'path'          , '=.,,**'   },
+    -- { 'buffer', 'path'          , '=.,,**'   },
 
     -- splits
     { 'global', 'splitbelow'    , true       }, -- a new window is put below the current one

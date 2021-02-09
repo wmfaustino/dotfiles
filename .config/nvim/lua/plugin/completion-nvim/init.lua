@@ -44,7 +44,10 @@ Option.set({
     -- Set completeopt to have a better completion experience
     {'global', 'completeopt', 'menuone,noinsert,noselect'},
 
-    -- Avoid showing message extra message when using completion
+    --[[
+        Avoid showing message extra message when using completion
+        Don't pass messages to ins-completion-menu
+      ]]
     { 'global', 'shortmess', vim.o.shortmess .. 'c' }
 })
 
@@ -63,3 +66,21 @@ Keymap.set({
     -- use map <c-p> to manually trigger completion
     -- { 'global', 'i', '<C-p>', '<Plug>(completion_trigger)', { silent = true } },
 })
+
+--[[
+
+If you're using completion.nvim, look into completion_customize_lsp_label variable. It defines the Kind and it's respective tag. In lua you can define it as
+vim.g.completion_customize_lsp_label = {
+    Function = ' [function]',
+    Method = ' [method]',
+    Reference = ' [refrence]',
+  }
+Also, if you want to change the priority of the Kind, look into completion_items_priority variable. Higher the number, higher the Kind will be displayed in the list. In lua,
+  vim.g.completion_items_priority = {
+    Function = 10,
+    Method = 5,
+    Reference = 9,
+}
+
+]]
+

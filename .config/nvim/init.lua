@@ -8,6 +8,7 @@ paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
 -- --- lsp
 paq 'neovim/nvim-lspconfig'
+
 -- --- completion
 paq 'nvim-lua/completion-nvim'
 paq 'Shougo/neosnippet.vim'
@@ -15,7 +16,14 @@ paq 'Shougo/neosnippet-snippets'
 -- paq 'nvim-lua/lsp_extensions.nvim'
 
 -- --- treesitter
-paq { 'nvim-treesitter/nvim-treesitter'} --, hook=vim.cmd[':TSUpdate'] } -- We recommend updating the parsers on update
+paq { 'nvim-treesitter/nvim-treesitter'}  --, hook=vim.cmd[':TSUpdate'] } -- We recommend updating the parsers on update
+
+paq 'dense-analysis/ale'
+
+-- --- telescope
+paq 'nvim-lua/popup.nvim'
+paq 'nvim-lua/plenary.nvim'
+paq 'nvim-telescope/telescope.nvim'
 
 -- --- color schemes
 paq 'dikiaap/minimalist'
