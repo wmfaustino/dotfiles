@@ -9,7 +9,7 @@ Keymap.set({
     { 'global', 'n', '<C-k>'     ,':m .-2<CR>=='           , opts },
     { 'global', 'n', '<C-j>'     ,':m .+1<CR>=='           , opts },
 
-    -- C-k in visual mode conflicts with neosnippet
+    -- C-k in visual mode conflicts with lsp-config
     -- { 'global', 'v', '<C-k>'     ,":m '<-2<CR>gv=gv"       , opts },
     -- { 'global', 'v', '<C-j>'     ,":m '>+1<CR>gv=gv"       , opts },
 
