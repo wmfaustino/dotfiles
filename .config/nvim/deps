@@ -1,11 +1,26 @@
-nodejs
-npm
-
 nvim nightly
+
+Javascript
+nodejs npm
+npm install -g tserver typescrit
+
+Python
+python -m pip install flake8
+asdf reshim python
+
+GO
+
+sh
+shellcheck
+GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
+
+PHP
+
+Rust
+
 
 lsps
 
-shellcheck
 
 
 https://github.com/sharkdp/bat
@@ -13,3 +28,8 @@ https://github.com/sharkdp/bat
 https://github.com/sharkdp/fd
 
 https://github.com/BurntSushi/ripgrep
+
+
+
+
+

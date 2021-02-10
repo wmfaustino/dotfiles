@@ -18,16 +18,20 @@ paq 'Shougo/neosnippet-snippets'
 -- --- treesitter
 paq { 'nvim-treesitter/nvim-treesitter'}  --, hook=vim.cmd[':TSUpdate'] } -- We recommend updating the parsers on update
 
-paq 'dense-analysis/ale'
-
 -- --- telescope
 paq 'nvim-lua/popup.nvim'
 paq 'nvim-lua/plenary.nvim'
 paq 'nvim-telescope/telescope.nvim'
 
+-- --- lint
+paq 'dense-analysis/ale'
+
+-- --- statusline
+paq 'itchyny/lightline.vim'
+-- paq 'maximbaz/lightline-ale'
+
 -- --- color schemes
 paq 'dikiaap/minimalist'
-paq 'itchyny/lightline.vim'
 
 -- --- file tree
 paq 'kyazdani42/nvim-web-devicons' -- for file icons

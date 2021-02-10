@@ -11,7 +11,7 @@ Language.on_attach(on_attach)
 
 Var.set({
 
-    -- " By default auto popup is enabled, turn it off by
+    -- " By default auto popup is enabled,
     { 'global', 'completion_enable_auto_popup', 1 },
 
     -- " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
