@@ -1,9 +1,4 @@
--- -----------------------------------------------------------------------------
--- => Language Servers 
--- -----------------------------------------------------------------------------
-
-
-Language = {}
+local Language = {}
 
 Language['javascript'] = {
     [ 'filetypes'    ] = { 'js', 'ts'                                 },
@@ -36,7 +31,7 @@ Language['shell'] = {
 
 Language['python'] = {
     [ 'filetypes'    ] = { 'py'                         },
-    [ 'dependencies' ] = { 'pyright', 'flake8'          },
+    [ 'dependencies' ] = { 'pyright', 'flake8'          }
     [ 'server'       ] = { 'pyright'                    },
     [ 'treesitter'   ] = { 'python'                     },
     [ 'ale_linters'  ] = { 'pyright', 'flake8'          },
@@ -47,39 +42,37 @@ Language['python'] = {
     }
 }
 
--- Language.servers = {'pyright', 'bashls', 'tsserver', 'vimls'}
+--[[
+=== python
+*pyright
+https://github.com/microsoft/pyright
+npm install -g pyright
 
-Language.get_servers = function()
-    
-    local servers = {}
-    
-    for lang, content in ipairs(Language) do
+*flake8
+https://flake8.pycqa.org/en/latest/
+python -m pip install flake8
 
-         servers[language][server] = language[server]
-    
-    end
-    return servers
-end
+=== javascript
+https://github.com/theia-ide/typescript-language-server
+npm install -g typescript typescript-language-server
 
-teste = Language.get_servers()
+=== vim
+*vimls
+https://github.com/iamcco/vim-language-server
+npm install -g vim-language-server
 
-Language.on_attach = function(on_attach)
-    for _, lsp in ipairs(teste) do
-      require('lspconfig')[lsp].setup { on_attach = on_attach }
-    end
-end
 
-Language.treesitter = {python, bash, javascript, typescript, regex}
+=== shell
+*basls
+https://github.com/bash-lsp/bash-language-server
+npm i -g bash-language-server
 
--- npm i -g pyright
--- npm i -g bash-language-server
--- npm install -g typescript typescript-language-server
--- npm i -g vim-language-server
--- TSInstall
---  python
---  bash
---  javascript
---  typescript
---
---  regex
--- -----------------------------------------------------------------------------
+*shellcheck
+https://github.com/koalaman/shellcheck
+apt-get install shellcheck
+
+*shfmt
+https://github.com/mvdan/sh
+GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
+
+]]

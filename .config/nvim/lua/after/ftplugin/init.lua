@@ -1,4 +1,7 @@
 
+
+
+
 let b:ale_linters = {'javascript': ['tsserver']}
 
 let b:ale_fixers =  {
@@ -8,3 +11,8 @@ let b:ale_fixers =  {
 \   ]
 \}
 
+local languages = require('')
+
+Var.set({
+    'buffer', 'ale_linters', 
+})
