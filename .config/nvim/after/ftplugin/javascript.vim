@@ -1,5 +1,6 @@
 
-let b:ale_linters = {'javascript': ['tsserver']}
+lua Language.set_ale_linters('javascript')
+" let b:ale_linters = {'javascript': ['tsserver']}
 
 let b:ale_fixers =  {
 \   'javascript': [
