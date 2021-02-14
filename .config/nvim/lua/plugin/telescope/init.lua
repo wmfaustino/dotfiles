@@ -28,7 +28,7 @@ opts = { noremap = true }
 
 -- print(vim.inspect(opts))
 
-Keymap.set({
+utils.Keymaps.set({
     { 'global', 'n', '<leader>ps', '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep for > ") })<CR>',opts }
 })
 

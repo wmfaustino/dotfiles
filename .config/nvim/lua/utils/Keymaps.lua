@@ -13,7 +13,7 @@ Keymap.set = function(keybindings_table)
 
     for key, t in pairs(keybindings_table) do
 
-        is_table(t)
+        utils.Helpers.is_table(t)
         
         scope = t[1]
 

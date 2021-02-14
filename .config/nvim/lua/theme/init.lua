@@ -2,7 +2,9 @@
 -- => theme 
 -- -----------------------------------------------------------------------------
 
-Option.set({
+-- require('utils')
+
+utils.Options.set({
     { 'global', 't_Co', '256', {} },
     { 'global', 'termguicolors', true, {} },
     { 'global', 'background', 'dark', {} }

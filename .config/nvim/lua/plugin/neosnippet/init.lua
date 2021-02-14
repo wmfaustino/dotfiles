@@ -8,7 +8,7 @@
 -- -----------------------------------------------------------------------------
 if vim.fn.has('conceal') == 1 then
 
-    Option.set({
+    utils.Options.set({
         {"window", "conceallevel", 2},
         {"window", "concealcursor", "niv"}
     })
@@ -17,7 +17,7 @@ end
 
 -- keybindings
 -- -----------------------------------------------------------------------------
-Keymap.set({
+utils.Keymaps.set({
 
     -- Note: It must be "imap" and "smap".  It uses <Plug> mappings.
     {'global','i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {}},

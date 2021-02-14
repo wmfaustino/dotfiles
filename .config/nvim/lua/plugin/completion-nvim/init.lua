@@ -3,13 +3,13 @@
 -- -----------------------------------------------------------------------------
 local on_attach = require'completion'.on_attach
 
-Language.on_attach(on_attach)
+utils.Languages.on_attach(on_attach)
 -- require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 -- require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
 -- require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 -- require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
 
-Var.set({
+utils.Variables.set({
 
     -- " By default auto popup is enabled,
     { 'global', 'completion_enable_auto_popup', 1 },
@@ -39,7 +39,7 @@ Var.set({
 })
 
 -- -----------------------------------------------------------------------------
-Option.set({
+utils.Options.set({
 
     -- Set completeopt to have a better completion experience
     {'global', 'completeopt', 'menuone,noinsert,noselect'},
@@ -52,7 +52,7 @@ Option.set({
 })
 
 -- -----------------------------------------------------------------------------
-Keymap.set({
+utils.Keymaps.set({
 
     -- Use <Tab> and <S-Tab> to navigate through popup menu
     {'global', 'i', '<tab>', 'pumvisible() ? "<C-n>" : "<tab>"', { noremap = true, expr = true }},

@@ -52,7 +52,7 @@ end
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
 
-Language.on_attach(on_attach)
+utils.Languages.on_attach(on_attach)
 -- local servers = Language.servers -- {'pyright', 'bashls', 'tsserver', 'vimls'}
 
 -- for _, lsp in ipairs(servers) do

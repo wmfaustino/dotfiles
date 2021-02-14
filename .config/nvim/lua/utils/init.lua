@@ -1,11 +1,15 @@
-helpers = require('utils.helpers')
-Option = require('utils.Option')
-Keymap = require('utils.Keymap')
-Var = require('utils.Var')
-require('utils.lservers')
+local Helpers   = require('utils.Helpers')
+local Options   = require('utils.Options')
+local Keymaps   = require('utils.Keymaps')
+local Variables = require('utils.Variables')
+local Languages = require('utils.Languages')
 
--- Vim = {
---     Option = Option,
---     Keymap = Keymap,
---     Var = Var
--- }
+local utils = {
+	['Helpers'  ] = Helpers,
+	['Options'  ] = Options,
+	['Keymaps'  ] = Keymaps,
+	['Variables'] = Variables,
+	['Languages'] = Languages
+}
+
+return utils

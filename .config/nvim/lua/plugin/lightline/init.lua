@@ -2,13 +2,13 @@
 -- => lightline 
 -- -----------------------------------------------------------------------------
 
-Option.set({
+utils.Options.set({
     -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
     -- to get rid of it
     { 'global', 'showmode', false, {} }
 })
 
-Var.set({
+utils.Variables.set({
 
     { 'global', 'lightline', { ['colorscheme'] = 'material' }  },
 })

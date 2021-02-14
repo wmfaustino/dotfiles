@@ -2,26 +2,28 @@
 -- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 -- local g = vim.g      -- a table to access global variables
 
-local Option = {}
+local Variables = {}
 
-Option.scopes = {
-    global = vim.o,
-    buffer = vim.bo,
-    window = vim.wo
+Variables.scopes = {
+    global = vim.g,
+    window = vim.w,
+    buffer = vim.b,
+    tabpage = vim.t,
+    vim = vim.v,
 }
 
-Option.set = function(options_table)
+Variables.set = function(options_table)
 
     for key, t in pairs(options_table) do
 
-        is_table(t)
+        utils.Helpers.is_table(t)
 
         scope = t[1]
-        option =t[2] 
+        name =t[2] 
         value = t[3]
 
-       Option.scopes[scope][option] = value
+       Variables.scopes[scope][name] = value
     end 
 end
 
-return Option
+return Variables
