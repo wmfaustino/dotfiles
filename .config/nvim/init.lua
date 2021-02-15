@@ -1,8 +1,30 @@
-vim.cmd 'packadd paq-nvim'         -- Load package
+--[[
+ _       _ _         _       _     _
+(_)_ __ (_) |_    __| | ___ | |_  | |_   _  __ _
+| | '_ \| | __|  / _` |/ _ \| __| | | | | |/ _` |
+| | | | | | |_  | (_| | (_) | |_  | | |_| | (_| |
+|_|_| |_|_|\__|  \__,_|\___/ \__| |_|\__,_|\__,_|
 
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
+AUTHOR : Wilson Morais Faustino
+GITHUB : https://github.com/wmfaustino
+EMAIL  : open (.) source (at) wmfaustino (.) dev
+TWITTER: https://twitter.com/wmfaustino
+LICENSE: MIT (who cares, it's just a nvim config file)
 
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
+]]
+
+--[[ --------------------------------------------------------------------------
+    PLUGIN MANAGER: https://github.com/paq-nvim
+]] ----------------------------------------------------------------------------
+
+--[[ Load package ]]
+vim.cmd 'packadd paq-nvim'
+
+--[[ Import module and bind `paq` function  ]]
+local paq = require'paq-nvim'.paq
+
+--[[ Let Paq manage itself ]]
+paq{'savq/paq-nvim', opt=true}
 
 -- Add your packages
 
@@ -55,7 +77,3 @@ paq 'tweekmonster/startuptime.vim'
 -- -----------------------------------------------------------------------------
 
 require('init')
-
--- You can get Lua syntax highlighting inside .vim files by putting 
---let g:vimsyn_embed = 'l'
-
