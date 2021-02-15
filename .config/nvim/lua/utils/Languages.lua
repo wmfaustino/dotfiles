@@ -68,7 +68,7 @@ Languages.set_ale = function(lang)
 
          table.insert(debug, language.ale[ale_var])
 	 
-         Var.set({
+         utils.Variables.set({
              { 'buffer', ale_var, { [lang]= language.ale[ale_var] } },
          })
      end

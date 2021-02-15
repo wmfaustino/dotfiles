@@ -2,35 +2,41 @@ local all_langs = {}
 
 
 all_langs['vim'] = {
-    
-    [ 'filetypes'    ] = { 'vim'                                          },
-
-    ['lsp'           ] = {
+    [ 'filetypes'    ] = { 'vim'        },
+    [ 'options'      ] = {
+        { 'buffer', 'tabstop'       , 4  }, -- number of spaces a <Tab> in the text stands for
+        { 'buffer', 'softtabstop'   , 4  }, -- if non-zero, number of spaces to insert for a <Tab>
+        { 'buffer', 'shiftwidth'    , 4  }, -- number of spaces used for each step of (auto)indent
+    },
+    [ 'variables' ] = {
+        { 'global', 'vimsyn_embed'  , 'l'                                 },
+    },
+    [ 'lsp'          ] = {
         [ 'dependencies' ] = { 'vim-language-server,'                     },
         [ 'server'       ] = { 'vimls'                                    },
     },
-
     -- [ 'treesitter'   ] = {                                             },
-    
-    ['ale'           ] = {
+    [ 'ale'          ] = {
         [ 'ale_linters'  ] = { 'ale_custom_linting_rules', 'vimls'        },
         [ 'ale_fixers'   ] = { 'remove_trailing_lines', 'trim_whitespace' }
 
     },
 }
 
-all_langs['shell'] = {
-
-    [ 'filetypes'    ] = { 'sh'                                             },
-
-    ['lsp'           ] = {
+all_langs['sh'] = {
+    [ 'filetypes'    ] = { 'sh'         },
+    [ 'options'      ] = {
+        { 'buffer', 'tabstop'       , 4 }, -- number of spaces a <Tab> in the text stands for
+        { 'buffer', 'softtabstop'   , 4 }, -- if non-zero, number of spaces to insert for a <Tab>
+        { "buffer", "shiftwidth"    , 4 }, -- number of spaces used for each step of (auto)indent
+    },
+    [ 'variables' ] = {},
+    [ 'lsp'          ] = {
         [ 'dependencies' ] = { 'bash-language-server', 'shellcheck', 'shfmt'},
         [ 'server'       ] = { 'bashls'                                     },
     },
-
     [ 'treesitter'   ] = { 'bash'                                           },
-    
-    ['ale'           ] = {
+    [ 'ale'          ] = {
         [ 'ale_linters'  ] = { 'language_server', 'shell', 'shellcheck'     },
         [ 'ale_fixers'   ] = {
             'shfmt', 'remove_trailing_lines', 'trim_whitespace'
@@ -39,18 +45,19 @@ all_langs['shell'] = {
 }
 
 all_langs['python'] = {
-
-    [ 'filetypes'    ] = { 'py'                             },
-
-    ['lsp'           ] = { 
-
+    [ 'filetypes'    ] = { 'py'         },
+    [ 'options'      ] = {
+        { 'buffer', 'tabstop'       , 4 }, -- number of spaces a <Tab> in the text stands for
+        { 'buffer', 'softtabstop'   , 4 }, -- if non-zero, number of spaces to insert for a <Tab>
+        { "buffer", "shiftwidth"    , 4 }, -- number of spaces used for each step of (auto)indent
+    },
+    [ 'variables' ] = {},
+    [ 'lsp'          ] = { 
         [ 'dependencies' ] = { 'pyright', 'flake8'          },
         [ 'server'       ] = { 'pyright'                    },
     },
-
     [ 'treesitter'   ] = { 'python'                         },
-    
-    ['ale'           ] = {
+    [ 'ale'          ] = {
         [ 'ale_linters'  ] = { 'pyright', 'flake8'          },
         [ 'ale_fixers'   ] = {
             'add_blank_lines_for_python_control_statements',
@@ -61,17 +68,18 @@ all_langs['python'] = {
 }
 
 all_langs['javascript'] = {
-    
-    [ 'filetypes'    ] = { 'js', 'ts'                                        },
-    -- ['options']
-
+    [ 'filetypes'    ] = { 'js', 'ts'   },
+    [ 'options'      ] = {
+        { 'buffer', 'tabstop'       , 2 }, -- number of spaces a <Tab> in the text stands for
+        { 'buffer', 'softtabstop'   , 2 }, -- if non-zero, number of spaces to insert for a <Tab>
+        { "buffer", "shiftwidth"    , 2 }, -- number of spaces used for each step of (auto)indent
+    },
+    [ 'variables' ] = {},
     [ 'lsp'          ] = {
         [ 'dependencies' ] = { 'typescript', 'typescript-language-server'    },
         [ 'server'       ] = { 'tsserver'                                    },
     },
-    
     [ 'treesitter'   ] = { 'javascript', 'typescript'                        },
-    
     [ 'ale'          ] = {
         [ 'ale_linters'      ] = { 'tsserver'                                },
         [ 'ale_fixers'       ] = { 'remove_trailing_lines', 'trim_whitespace'}

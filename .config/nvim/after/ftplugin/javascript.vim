@@ -1,5 +1,13 @@
+lua <<EOF
+local lang = 'javascript'
 
-lua Language.set_ale('javascript')
+local options = languages[lang].options
+
+utils.Languages.set_ale(lang)
+utils.Options.set(options)
+
+EOF
+
 " let b:ale_linters = {'javascript': ['tsserver']}
 
 " let b:ale_fixers =  {
