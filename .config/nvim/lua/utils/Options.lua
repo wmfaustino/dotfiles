@@ -1,27 +1,37 @@
--- local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
--- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
--- local g = vim.g      -- a table to access global variables
+--[[ --------------------------------------------------------------------------
+  ___        _   _                 
+ / _ \ _ __ | |_(_) ___  _ __  ___ 
+| | | | '_ \| __| |/ _ \| '_ \/ __|
+| |_| | |_) | |_| | (_) | | | \__ \
+ \___/| .__/ \__|_|\___/|_| |_|___/
+      |_|                          
 
+==> Methods to deal with settings
+-----------------------------------------------------------------------------]]
 local Option = {}
 
+--[[ --- define scopes ----------------------------------------------------- ]]
 Option.scopes = {
     global = vim.o,
     buffer = vim.bo,
     window = vim.wo
 }
 
+--[[ --- set method -------------------------------------------------------- ]]
 Option.set = function(options_table)
 
-    for key, t in pairs(options_table) do
+    for _, setting in pairs(options_table) do
+        
+        -- test whether setting comes as a table
+        utils.Helpers.is_table(setting)
 
-        utils.Helpers.is_table(t)
-
-        scope = t[1]
-        option =t[2] 
-        value = t[3]
+        scope = setting[1]
+        option =setting[2] 
+        value = setting[3]
 
        Option.scopes[scope][option] = value
     end 
 end
 
+-------------------------------------------------------------------------------
 return Option

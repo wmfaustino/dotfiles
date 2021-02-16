@@ -1,28 +1,53 @@
--- local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
--- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
--- local g = vim.g      -- a table to access global variables
+--[[ --------------------------------------------------------------------------
+ _  __                                
+| |/ /___ _   _ _ __ ___   __ _ _ __  
+| ' // _ \ | | | '_ ` _ \ / _` | '_ \ 
+| . \  __/ |_| | | | | | | (_| | |_) |
+|_|\_\___|\__, |_| |_| |_|\__,_| .__/ 
+          |___/                |_|    
 
+==> Methods to deal with keybindings
+-----------------------------------------------------------------------------]]
 local Keymap = {}
 
+--[[ --- define scopes ----------------------------------------------------- ]]
 Keymap.scopes = {
     global = vim.api.nvim_set_keymap,
     buffer = vim.api.nvim_buf_set_keymap
 }
 
+--[[ --- set method -------------------------------------------------------- ]]
 Keymap.set = function(keybindings_table)
 
-    for key, t in pairs(keybindings_table) do
+    for _, keybinding in pairs(keybindings_table) do
 
-        utils.Helpers.is_table(t)
+        -- test whether keybinding comes as a table
+        utils.Helpers.is_table(keybinding)
         
-        scope = t[1]
+        scope = keybinding[1]
 
         if scope == 'global' then
-            Keymap.scopes[scope](t[2],t[3],t[4],t[5])
+            local mode     = keybinding[2]
+	    local key_comb = keybinding[3]
+	    local command  = keybinding[4]
+	    local opts     = keybinding[5]
+
+            Keymap.scopes[scope](mode,key_comb,command,opts)
         else
-            Keymap.scopes[scope](t[2],t[3],t[4],t[5],t[6])
+            local buffer   = keybinding[3]
+            local mode     = keybinding[3]
+	    local key_comb = keybinding[4]
+	    local command  = keybinding[5]
+	    local opts     = keybinding[6]
+
+            Keymap.scopes[scope](buffer,mode,key_comb,command,opts)
         end
     end
 end
 
+-------------------------------------------------------------------------------
 return Keymap
+
+-- local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
+-- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
+-- local g = vim.g      -- a table to access global variables

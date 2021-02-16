@@ -1,26 +1,29 @@
--- -----------------------------------------------------------------------------
--- => Languages Servers 
--- -----------------------------------------------------------------------------
+--[[ --------------------------------------------------------------------------
+ _                                             
+| |    __ _ _ __   __ _ _   _  __ _  __ _  ___ 
+| |   / _` | '_ \ / _` | | | |/ _` |/ _` |/ _ \
+| |__| (_| | | | | (_| | |_| | (_| | (_| |  __/
+|_____\__,_|_| |_|\__, |\__,_|\__,_|\__, |\___|
+                  |___/             |___/      
+
+==> Methods to setup languages
+-----------------------------------------------------------------------------]]
+
+--[[ --- get all languages and their attributes----------------------------- ]]
 local all_langs = require('languages')
 
+
+--[[ ---  --------------------------------------- ]]
 local Languages = {}
 
--- local fs = require("filesystem")
-
--- for file in fs.list("/path") do
---   if not fs.isDirectory(file) then
---     print(file)
---   end
--- end
-
---[[ methods ]]
-
+--[[ --- get all language servers ------------------------------------------ ]]
 Languages.get_servers = function(all_langs)
     
     local servers = {}
     
     for lang, attr in pairs(all_langs) do
 
+	-- each language table has a lsp attribute
         if(attr.lsp ~= nil) then
             table.insert(servers, attr.lsp['server'][1])
         end
@@ -29,12 +32,14 @@ Languages.get_servers = function(all_langs)
     return servers
 end
 
+--[[ --- get all treesitter language --------------------------------------- ]]
 Languages.get_treesitter = function(all_langs)
     
     local treesitters = {}
     
     for lang, attr in pairs(all_langs) do
         
+	-- each language table has a treesitter attribute
         if(attr.treesitter ~= nil) then
          table.insert(treesitters, attr.treesitter)
         end
