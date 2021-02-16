@@ -18,6 +18,10 @@ PHP
 
 Rust
 
+treesitter
+tar and curl in your path (or alternativly git)
+A C compiler in your path and libstdc++ installed (Windows users please read this!).
+
 
 lsps
 
