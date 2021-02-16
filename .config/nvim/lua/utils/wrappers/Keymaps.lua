@@ -28,17 +28,17 @@ Keymap.set = function(keybindings_table)
 
         if scope == 'global' then
             local mode     = keybinding[2]
-	    local key_comb = keybinding[3]
-	    local command  = keybinding[4]
-	    local opts     = keybinding[5]
+	        local key_comb = keybinding[3]
+	        local command  = keybinding[4]
+	        local opts     = keybinding[5]
 
             Keymap.scopes[scope](mode,key_comb,command,opts)
         else
-            local buffer   = keybinding[3]
+            local buffer   = keybinding[2]
             local mode     = keybinding[3]
-	    local key_comb = keybinding[4]
-	    local command  = keybinding[5]
-	    local opts     = keybinding[6]
+	        local key_comb = keybinding[4]
+	        local command  = keybinding[5]
+	        local opts     = keybinding[6]
 
             Keymap.scopes[scope](buffer,mode,key_comb,command,opts)
         end
@@ -47,7 +47,3 @@ end
 
 -------------------------------------------------------------------------------
 return Keymap
-
--- local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
--- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
--- local g = vim.g      -- a table to access global variables

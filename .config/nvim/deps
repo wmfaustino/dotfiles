@@ -38,5 +38,17 @@ ou
 sudo apt-get install ripgrep
 
 
+-- npm i -g pyright
+-- npm i -g bash-language-server
+-- npm install -g typescript typescript-language-server
+-- npm i -g vim-language-server
+-- TSInstall
+--  python
+--  bash
+--  javascript
+--  typescript
+--
+--  regex
+-- -----------------------------------------------------------------------------
 
 

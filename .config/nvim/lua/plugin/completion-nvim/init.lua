@@ -1,7 +1,18 @@
+--[[ --------------------------------------------------------------------------
+ _  __                                
+| |/ /___ _   _ _ __ ___   __ _ _ __  
+| ' // _ \ | | | '_ ` _ \ / _` | '_ \ 
+| . \  __/ |_| | | | | | | (_| | |_) |
+|_|\_\___|\__, |_| |_| |_|\__,_| .__/ 
+          |___/                |_|    
+
+==> Methods to deal with keybindings
+-----------------------------------------------------------------------------]]
 -- -----------------------------------------------------------------------------
 -- => completion-nvim
 -- -----------------------------------------------------------------------------
 local on_attach = require'completion'.on_attach
+local opts      = { noremap = true, expr = true }
 
 utils.Languages.on_attach(on_attach)
 -- require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
@@ -9,6 +20,7 @@ utils.Languages.on_attach(on_attach)
 -- require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 -- require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
 
+--[[ --- define scopes ----------------------------------------------------- ]]
 utils.Variables.set({
 
     -- " By default auto popup is enabled,

@@ -18,3 +18,17 @@ Commands['nvim_create_augroups'] = function (definitions)
 		api.nvim_command('augroup END')
 	end
 end
+-- au BufNewFile,BufRead *.js, *.html, *.css
+--     \ set tabstop=2
+--     \ set softtabstop=2
+--     \ set shiftwidth=2
+
+-- vim.api.nvim_command([[
+-- augroup AutoCompileLatex
+-- autocmd BufEnter *.tex :set wrap linebreak nolist spell
+-- autocmd BufWritePost *.tex :silent !bibtex %:t:r > /dev/null
+-- autocmd BufWritePost *.tex :silent !compiler % > /dev/null
+-- augroup END 
+-- ]])
+
+-- " -----------------------------------------------------------------------------

@@ -1,19 +1,18 @@
 --[[ --------------------------------------------------------------------------
- _                                             
-| |    __ _ _ __   __ _ _   _  __ _  __ _  ___ 
-| |   / _` | '_ \ / _` | | | |/ _` |/ _` |/ _ \
-| |__| (_| | | | | (_| | |_| | (_| | (_| |  __/
-|_____\__,_|_| |_|\__, |\__,_|\__,_|\__, |\___|
-                  |___/             |___/      
+ _                                                  
+| |    __ _ _ __   __ _ _   _  __ _  __ _  ___  ___ 
+| |   / _` | '_ \ / _` | | | |/ _` |/ _` |/ _ \/ __|
+| |__| (_| | | | | (_| | |_| | (_| | (_| |  __/\__ \
+|_____\__,_|_| |_|\__, |\__,_|\__,_|\__, |\___||___/
+                  |___/             |___/           
 
-==> Methods to setup languages
+==> Methods to setup the languages
 -----------------------------------------------------------------------------]]
 
 --[[ --- get all languages and their attributes----------------------------- ]]
 local all_langs = require('languages')
 
-
---[[ ---  --------------------------------------- ]]
+--[[ --- create a Language table to hold the methods ----------------------- ]]
 local Languages = {}
 
 --[[ --- get all language servers ------------------------------------------ ]]
@@ -32,7 +31,7 @@ Languages.get_servers = function(all_langs)
     return servers
 end
 
---[[ --- get all treesitter language --------------------------------------- ]]
+--[[ --- get all treesitter languages -------------------------------------- ]]
 Languages.get_treesitter = function(all_langs)
     
     local treesitters = {}
@@ -48,25 +47,22 @@ Languages.get_treesitter = function(all_langs)
     return treesitters
 end
 
-Languages.servers = Languages.get_servers(all_langs)
-Languages.treesitter = Languages.get_treesitter(all_langs)
-
+--[[ --- lsp on_attach method -------------------------------------------------
+         used by nvim-lspconfig and completion-nvim ------------------------ ]]
 Languages.on_attach = function(on_attach)
 
-    for _, lsp in ipairs(Languages.servers) do
+    for _, lsp in ipairs(Languages.get_servers(all_langs)) do
       require('lspconfig')[lsp].setup { on_attach = on_attach }
     end
 
 end
 
-
---[[
-    function that receives a language and set ale variables for that language
-]]
+-- [[ --- set ale (linting) variables -------------------------------------- ]]
 Languages.set_ale = function(lang)
    
     local language = all_langs[lang]
 
+	-- each language table has an ale attribute
     if(language.ale == nil) then return end
 
     for ale_var, value in pairs(language.ale) do
@@ -79,11 +75,12 @@ Languages.set_ale = function(lang)
      end
 end
 
+-------------------------------------------------------------------------------
 return Languages
 
 
-
---[[
+--[[ Languages.servers = Languages.get_servers(all_langs)
+     Languages.treesitter = Languages.get_treesitter(all_langs)
 
 function that receives all languages table and set all ale variables
 ** not used anymore ** Now I set ale variables calling with a language
@@ -103,17 +100,3 @@ Languages.set_all_ale_variables = function(all_langs)
     end
 end
 ]]
-
-
--- npm i -g pyright
--- npm i -g bash-language-server
--- npm install -g typescript typescript-language-server
--- npm i -g vim-language-server
--- TSInstall
---  python
---  bash
---  javascript
---  typescript
---
---  regex
--- -----------------------------------------------------------------------------

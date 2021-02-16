@@ -1,4 +1,13 @@
+--[[ --------------------------------------------------------------------------
+          _   _   _                 
+ ___  ___| |_| |_(_)_ __   __ _ ___ 
+/ __|/ _ \ __| __| | '_ \ / _` / __|
+\__ \  __/ |_| |_| | | | | (_| \__ \
+|___/\___|\__|\__|_|_| |_|\__, |___/
+                          |___/      
+-----------------------------------------------------------------------------]]
 
+--[[ --- define leader key ------------------------------------------------- ]]
 utils.Variables.set({
     { 'global', 'mapleader', " " }
 })
@@ -66,27 +75,4 @@ utils.Options.set({
     { 'buffer', 'softtabstop'   , indent     }, -- if non-zero, number of spaces to insert for a <Tab>
     { "buffer", "shiftwidth"    , indent     }, -- number of spaces used for each step of (auto)indent
     { "global", "smarttab"      , true       }, -- a <Tab> in an indent inserts 'shiftwidth' spaces 
-
 })
-
-
---set fileencoding=utf-8	        " character encoding for the current file
--- "syntax on                      " Enable defautl highlight
-    -- {"global", "highligh", "Normal guibg=none"},
--- " highligh ColorColumn ctermbg=lightgrey guibg=lightgrey
-
-
--- au BufNewFile,BufRead *.js, *.html, *.css
---     \ set tabstop=2
---     \ set softtabstop=2
---     \ set shiftwidth=2
-
--- vim.api.nvim_command([[
--- augroup AutoCompileLatex
--- autocmd BufEnter *.tex :set wrap linebreak nolist spell
--- autocmd BufWritePost *.tex :silent !bibtex %:t:r > /dev/null
--- autocmd BufWritePost *.tex :silent !compiler % > /dev/null
--- augroup END 
--- ]])
-
--- " -----------------------------------------------------------------------------
