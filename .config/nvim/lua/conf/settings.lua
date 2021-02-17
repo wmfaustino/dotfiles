@@ -20,7 +20,9 @@ local scroll_num  = 8
 utils.Options.set({
 
     { 'global', 'shell'         , shell      },
+    { 'global', 'title'         , true       },
     { 'global', 'errorbells'    , false      }, -- Don't play sound on error
+    { 'global', 'confirm'       , true       }, -- use a dialog when operation has to be confirmed
     { 'global', 'exrc'          , true       }, -- enable reading .vimrc/.exrc/.gvimrc in the current directory
     { 'global', 'fileformat'    , 'unix'     }, -- end-of-line format: 'dos', 'unix' or 'mac'
     { 'global', 'encoding'      , 'utf-8'    }, -- character encoding used in Vim: 'latin1', 'utf-8'
@@ -47,7 +49,7 @@ utils.Options.set({
     -- keeping history
     { 'global', 'swapfile'      , false      },
     { 'global', 'backup'        , false      },
-    -- undodir and undofile set on undotree plugin config
+    -- undodir and undofile set at lua/plugins/undotree
 
     -- search
     { 'global', 'hlsearch'      , false      },

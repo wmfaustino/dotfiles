@@ -101,4 +101,27 @@ all_langs['javascript'] = {
 
 -------------------------------------------------------------------------------
 
+--[[ --- html -------------------------------------------------------------- ]]
+--[[
+all_langs['html'] = {
+    [ 'filetypes'    ] = { 'html'       },
+    [ 'options'      ] = {
+        { 'buffer', 'tabstop'       , 2 }, -- number of spaces a <Tab> in the text stands for
+        { 'buffer', 'softtabstop'   , 2 }, -- if non-zero, number of spaces to insert for a <Tab>
+        { "buffer", "shiftwidth"    , 2 }, -- number of spaces used for each step of (auto)indent
+    },
+    [ 'variables' ] = {},
+    [ 'lsp'          ] = {
+        [ 'dependencies' ] = { 'typescript', 'typescript-language-server'    },
+        [ 'server'       ] = { 'tsserver'                                    },
+    },
+    [ 'treesitter'   ] = { 'javascript', 'typescript'                        },
+    [ 'ale'          ] = {
+        [ 'ale_linters'      ] = { 'tsserver'                                },
+        [ 'ale_fixers'       ] = { 'remove_trailing_lines', 'trim_whitespace'}
+    }
+}
+]]
+-------------------------------------------------------------------------------
+
 return all_langs
