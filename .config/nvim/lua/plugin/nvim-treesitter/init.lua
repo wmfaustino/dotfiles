@@ -9,6 +9,9 @@
 ==> https://github.com/nvim-treesitter/nvim-treesitter
 -----------------------------------------------------------------------------]]
 
+--[[ --- update parsers ---------------------------------------------------- ]]
+-- require 'utils.Languages.update_treesitter_langs'
+
 --[[ --- modules ----------------------------------------------------------- ]]
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages

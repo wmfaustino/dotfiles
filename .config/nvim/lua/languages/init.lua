@@ -25,7 +25,7 @@ all_langs['vim'] = {
         [ 'dependencies' ] = { 'vim-language-server,'                     },
         [ 'server'       ] = { 'vimls'                                    },
     },
-    -- [ 'treesitter'   ] = {                                             },
+    [ 'treesitter'   ] = {                                             },
     [ 'ale'          ] = {
         [ 'ale_linters'  ] = { 'ale_custom_linting_rules', 'vimls'        },
         [ 'ale_fixers'   ] = { 'remove_trailing_lines', 'trim_whitespace' }

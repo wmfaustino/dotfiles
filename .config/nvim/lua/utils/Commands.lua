@@ -1,4 +1,36 @@
 
+--[[
+M.commands = {
+  TSInstall = {
+    run = install(false, true),
+    args = {
+      "-nargs=+",
+      "-complete=custom,nvim_treesitter#installable_parsers",
+    },
+  },
+
+local api = vim.api
+local fn = vim.fn
+local luv = vim.loop
+
+local M = {}
+
+function M.setup_commands(mod, commands)
+  for command_name, def in pairs(commands) do
+    local call_fn = string.format("lua require'nvim-treesitter.%s'.commands.%s.run(<f-args>)", mod, command_name)
+    local parts = vim.tbl_flatten({
+        "command!",
+        def.args,
+        command_name,
+        call_fn,
+      })
+    api.nvim_command(table.concat(parts, " "))
+  end
+end
+
+]]
+
+
 local Commands = {}
 
 Commands['nvim_create_augroups'] = function (definitions)

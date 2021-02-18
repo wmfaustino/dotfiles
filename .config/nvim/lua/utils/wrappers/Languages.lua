@@ -1,5 +1,4 @@
 --[[ --------------------------------------------------------------------------
- _                                                  
 | |    __ _ _ __   __ _ _   _  __ _  __ _  ___  ___ 
 | |   / _` | '_ \ / _` | | | |/ _` |/ _` |/ _ \/ __|
 | |__| (_| | | | | (_| | |_| | (_| | (_| |  __/\__ \
@@ -10,7 +9,7 @@
 -----------------------------------------------------------------------------]]
 
 --[[ --- get all languages and their attributes----------------------------- ]]
-local all_langs = require('languages')
+local all_langs = require'languages'
 
 --[[ --- create a Language table to hold the methods ----------------------- ]]
 local Languages = {}
@@ -29,22 +28,6 @@ Languages.get_servers = function(all_langs)
 
     end
     return servers
-end
-
---[[ --- get all treesitter languages -------------------------------------- ]]
-Languages.get_treesitter = function(all_langs)
-    
-    local treesitters = {}
-    
-    for lang, attr in pairs(all_langs) do
-        
-	-- each language table has a treesitter attribute
-        if(attr.treesitter ~= nil) then
-         table.insert(treesitters, attr.treesitter)
-        end
-
-    end
-    return treesitters
 end
 
 --[[ --- lsp on_attach method -------------------------------------------------
@@ -74,13 +57,48 @@ Languages.set_ale = function(lang)
          })
      end
 end
-
 -------------------------------------------------------------------------------
+
+--[[ --- get all treesitter languages -------------------------------------- ]]
+Languages.get_treesitter = function(all_langs)
+    
+    local treesitters = {}
+    
+    for lang, attr in pairs(all_langs) do
+        
+	-- each language table has a treesitter attribute
+        if (attr.treesitter ~= nill and attr.treesitter[1]) then
+         table.insert(treesitters, attr.treesitter[1])
+        end
+
+    end
+    return treesitters
+end
+
+Languages.install_treesitter_langs = function(treesitter_langs)
+    
+    local TSInstall = require'nvim-treesitter.install'.commands.TSInstall.run 
+
+    for _, lang in ipairs(treesitter_langs) do TSInstall(lang) end
+end
+
+Languages.update_treesitter_langs = function(treesitter_langs)
+    
+    local TSUpdate = require'nvim-treesitter.install'.commands.TSUpdate.run 
+
+    for _, lang in ipairs(treesitter_langs) do TSUpdate(lang) end
+end
+
+-- require'nvim-treesitter.install'.commands.TSUpdate.run()
+Languages.treesitter = Languages.get_treesitter(all_langs)
+Languages.update_treesitter_langs(Languages.treesitter)
+-- Languages.install_treesitter_langs(Languages.treesitter)
+-------------------------------------------------------------------------------
+-- vim.api.nvim_command('TSInstall json')
+-- vim.api.nvim_exec('<cmd>lua require("telescope.builtin").find_files()<cr>', true)
 return Languages
 
-
 --[[ Languages.servers = Languages.get_servers(all_langs)
-     Languages.treesitter = Languages.get_treesitter(all_langs)
 
 function that receives all languages table and set all ale variables
 ** not used anymore ** Now I set ale variables calling with a language
