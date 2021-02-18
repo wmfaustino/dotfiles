@@ -6,18 +6,21 @@
  \__,_|\__|_|_|___/
 -----------------------------------------------------------------------------]]
 
-local Helpers   = require('utils.wrappers.Helpers')
-local Options   = require('utils.wrappers.Options')
-local Keymaps   = require('utils.wrappers.Keymaps')
-local Variables = require('utils.wrappers.Variables')
-local Languages = require('utils.wrappers.Languages')
+local Helpers    = require('utils.wrappers.Helpers')
+local Options    = require('utils.wrappers.Options')
+local Keymaps    = require('utils.wrappers.Keymaps')
+local Variables  = require('utils.wrappers.Variables')
+local Languages  = require('utils.wrappers.Languages')
+local Treesitter = require('utils.wrappers.Treesitter')
 
+-- Treesitter['TSInstall'], parsers)
 local utils = {
 	['Helpers'  ] = Helpers,
 	['Options'  ] = Options,
 	['Keymaps'  ] = Keymaps,
 	['Variables'] = Variables,
-	['Languages'] = Languages
+	['Languages'] = Languages,
+    [ 'Treesitter' ] = Treesitter
 }
 
 return utils

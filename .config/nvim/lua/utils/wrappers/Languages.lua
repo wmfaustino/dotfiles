@@ -90,8 +90,8 @@ Languages.update_treesitter_langs = function(treesitter_langs)
 end
 
 -- require'nvim-treesitter.install'.commands.TSUpdate.run()
-Languages.treesitter = Languages.get_treesitter(all_langs)
-Languages.update_treesitter_langs(Languages.treesitter)
+-- Languages.treesitter = Languages.get_treesitter(all_langs)
+-- Languages.update_treesitter_langs(Languages.treesitter)
 -- Languages.install_treesitter_langs(Languages.treesitter)
 -------------------------------------------------------------------------------
 -- vim.api.nvim_command('TSInstall json')
