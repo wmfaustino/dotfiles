@@ -11,16 +11,20 @@ local Options    = require('utils.wrappers.Options')
 local Keymaps    = require('utils.wrappers.Keymaps')
 local Variables  = require('utils.wrappers.Variables')
 local Languages  = require('utils.wrappers.Languages')
-local Treesitter = require('utils.wrappers.Treesitter')
+local Ale        = require('utils.wrappers.Ale')
 
--- Treesitter['TSInstall'], parsers)
+local Lsp        = require('utils.wrappers.Lsp')
+-- local Treesitter = require('utils.wrappers.Treesitter')
+
 local utils = {
-	['Helpers'  ] = Helpers,
-	['Options'  ] = Options,
-	['Keymaps'  ] = Keymaps,
-	['Variables'] = Variables,
-	['Languages'] = Languages,
-    [ 'Treesitter' ] = Treesitter
+	['Helpers'     ] = Helpers,
+	['Options'     ] = Options,
+	['Keymaps'     ] = Keymaps,
+	['Variables'   ] = Variables,
+	['Languages'   ] = Languages,
+    [ 'Lsp'        ] = Lsp,
+    -- [ 'Treesitter' ] = Treesitter,
+    [ 'Ale'        ] = Ale,
 }
 
 return utils

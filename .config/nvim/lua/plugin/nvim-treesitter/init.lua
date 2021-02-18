@@ -9,8 +9,13 @@
 ==> https://github.com/nvim-treesitter/nvim-treesitter
 -----------------------------------------------------------------------------]]
 
---[[ --- update parsers ---------------------------------------------------- ]]
--- require 'utils.Languages.update_treesitter_langs'
+--[[ --- update all parsers ------------------------------------------------ ]]
+local utils        = require'utils'
+-- local Treesitter   = utils.Treesitter
+-- local all_parsers  = Treesitter.parsers
+-- local TSUpdate_all = Treesitter.parser_methods.TSUpdate
+require'nvim-treesitter.install'.commands.TSUpdate.run()
+-- Treesitter.call_parsers_method(TSUpdate_all, all_parsers)
 
 --[[ --- modules ----------------------------------------------------------- ]]
 require'nvim-treesitter.configs'.setup {

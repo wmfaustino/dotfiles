@@ -5,7 +5,6 @@
   | || | |  __/  __/\__ \ | |_| ||  __/ |   
   |_||_|  \___|\___||___/_|\__|\__\___|_|   
 
-==> Methods to setup the languages
 -----------------------------------------------------------------------------]]
 
 --[[ --- get all languages and their attributes----------------------------- ]]
@@ -28,20 +27,22 @@ Treesitter.get_parsers = function(all_langs)
     end
     return parsers
 end
+
 -------------------------------------------------------------------------------
 
-local parser_methods = {
+Treesitter.call_parsers_method = function(method, parsers)
+    
+    for _, parser in ipairs(parsers) do method(parser) end
+end
+-------------------------------------------------------------------------------
+
+Treesitter.parsers = Treesitter.get_parsers(all_langs)
+-------------------------------------------------------------------------------
+
+Treesitter.parser_methods = {
     ['TSInstall'] = require'nvim-treesitter.install'.commands.TSInstall.run,
     ['TSUpdate'] = require'nvim-treesitter.install'.commands.TSUpdate.run
 }
 
-local parsers = Treesitter.get_parsers(all_langs)
-
-Treesitter.parsers = function(method, parsers)
-    
-    for _, parser in ipairs(parsers) do method(parser) end
-end
-
 -------------------------------------------------------------------------------
--- Treesitter.parsers(parser_methods['TSInstall'], parsers)
--- return Treesitter.parsers(parser_methods['TSInstall'], parsers)
+return Treesitter

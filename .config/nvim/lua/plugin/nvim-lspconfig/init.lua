@@ -64,4 +64,6 @@ end
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
 
-utils.Languages.on_attach(on_attach)
+local utils = require'utils'
+local Lsp   = utils.Lsp
+Lsp.on_attach(on_attach)

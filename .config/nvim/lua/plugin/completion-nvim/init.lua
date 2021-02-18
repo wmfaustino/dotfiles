@@ -11,12 +11,16 @@
 -----------------------------------------------------------------------------]]
 
 --[[ --- nvim-completion autocommands -------------------------------------- ]]
-local on_attach = require'completion'.on_attach
-utils.Languages.on_attach(on_attach)
+local utils = require'utils'
+local Lsp   = utils.Lsp
 
+local on_attach = require'completion'.on_attach
+Lsp.on_attach(on_attach)
 
 --[[ --- nvim-completion variables ----------------------------------------- ]]
-utils.Variables.set({
+local set_variables = utils.Variables.set
+
+set_variables({
 
     -- By default auto popup is enabled,
     { 'global', 'completion_enable_auto_popup'     , 1            },
@@ -46,7 +50,9 @@ utils.Variables.set({
 })
 
 --[[ --- nvim-completion settings ------------------------------------------ ]]
-utils.Options.set({
+local set_options = utils.Options.set
+
+set_options({
 
     -- Set completeopt to have a better completion experience
     { 'global', 'completeopt', 'menuone,noinsert,noselect' },
@@ -63,7 +69,8 @@ utils.Options.set({
 local opts   = { noremap = true, expr = true }
 local silent = { silent  = true }
 
-utils.Keymaps.set({
+local set_keybinding = utils.Keymaps.set
+set_keybinding({
 
     -- Use <Tab> and <S-Tab> to navigate through popup menu
     { 'global', 'i', '<tab>'  , 'pumvisible() ? "<C-n>" : "<tab>"', opts   },
