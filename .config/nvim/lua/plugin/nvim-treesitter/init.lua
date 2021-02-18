@@ -10,7 +10,7 @@
 -----------------------------------------------------------------------------]]
 
 --[[ --- update all parsers ------------------------------------------------ ]]
-local utils        = require'utils'
+-- local utils        = require'utils'
 -- local Treesitter   = utils.Treesitter
 -- local all_parsers  = Treesitter.parsers
 -- local TSUpdate_all = Treesitter.parser_methods.TSUpdate

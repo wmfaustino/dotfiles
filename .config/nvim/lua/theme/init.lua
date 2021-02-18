@@ -6,6 +6,8 @@
  \__|_| |_|\___|_| |_| |_|\___|
 -----------------------------------------------------------------------------]]
 
+local utils = require'utils'
+
 utils.Options.set({
     { 'global', 't_Co', '256', {} },
     { 'global', 'termguicolors', true, {} },
