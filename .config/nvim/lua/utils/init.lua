@@ -14,7 +14,8 @@ local Languages  = require('utils.wrappers.Languages')
 local Ale        = require('utils.wrappers.Ale')
 
 local Lsp        = require('utils.wrappers.Lsp')
--- local Treesitter = require('utils.wrappers.Treesitter')
+local Filetype   = require('utils.wrappers.Filetype')
+local Treesitter = require('utils.wrappers.Treesitter')
 
 local utils = {
 	['Helpers'     ] = Helpers,
@@ -23,8 +24,9 @@ local utils = {
 	['Variables'   ] = Variables,
 	['Languages'   ] = Languages,
     [ 'Lsp'        ] = Lsp,
-    -- [ 'Treesitter' ] = Treesitter,
+    [ 'Treesitter' ] = Treesitter,
     [ 'Ale'        ] = Ale,
+    [ 'Filetype'   ] = Filetype,
 }
 
 return utils

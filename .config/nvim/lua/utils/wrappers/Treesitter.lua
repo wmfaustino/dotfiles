@@ -21,28 +21,29 @@ Treesitter.get_parsers = function(all_langs)
     for _, attr in pairs(all_langs) do
         
 	     -- each language table has a treesitter attribute
-        if (attr.treesitter ~= nill and attr.treesitter[1]) then
-            table.insert(parsers, attr.treesitter[1])
+        if (attr.treesitter ~= nill and attr.treesitter[1] ~= nil) then
+            for _, parser in ipairs(attr.treesitter) do
+                table.insert(parsers, parser)
+            end
         end
     end
     return parsers
 end
 
 -------------------------------------------------------------------------------
-
+Treesitter.parsers = Treesitter.get_parsers(all_langs)
+-------------------------------------------------------------------------------
+--[[
 Treesitter.call_parsers_method = function(method, parsers)
     
     for _, parser in ipairs(parsers) do method(parser) end
 end
 -------------------------------------------------------------------------------
 
-Treesitter.parsers = Treesitter.get_parsers(all_langs)
--------------------------------------------------------------------------------
-
 Treesitter.parser_methods = {
     ['TSInstall'] = require'nvim-treesitter.install'.commands.TSInstall.run,
     ['TSUpdate'] = require'nvim-treesitter.install'.commands.TSUpdate.run
 }
-
+]]
 -------------------------------------------------------------------------------
 return Treesitter

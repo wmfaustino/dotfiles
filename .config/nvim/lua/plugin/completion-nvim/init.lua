@@ -11,7 +11,7 @@
 -----------------------------------------------------------------------------]]
 
 --[[ --- nvim-completion autocommands -------------------------------------- ]]
-local utils = require'utils'
+-- local utils = require'utils'
 local Lsp   = utils.Lsp
 
 local on_attach = require'completion'.on_attach

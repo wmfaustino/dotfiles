@@ -70,6 +70,7 @@ paq 'mbbill/undotree'
 --[[ ---  ------------------------------------------------------------------ ]]
 paq 'tpope/vim-surround'
 -- paq 'rstacruz/vim-closer' -- Closes brackets. Only works when you press Enter.
+-- paq 'jiangmiao/auto-pairs'
 paq 'cohama/lexima.vim'
 paq 'tpope/vim-commentary'
 paq 'Yggdroot/indentLine'    -- Show the visual mark on indendation blocks ┆

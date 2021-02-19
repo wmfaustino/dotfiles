@@ -8,18 +8,14 @@
 ==> nvim-treesitter config
 ==> https://github.com/nvim-treesitter/nvim-treesitter
 -----------------------------------------------------------------------------]]
+local parsers = utils.Treesitter.parsers
 
 --[[ --- update all parsers ------------------------------------------------ ]]
--- local utils        = require'utils'
--- local Treesitter   = utils.Treesitter
--- local all_parsers  = Treesitter.parsers
--- local TSUpdate_all = Treesitter.parser_methods.TSUpdate
 require'nvim-treesitter.install'.commands.TSUpdate.run()
--- Treesitter.call_parsers_method(TSUpdate_all, all_parsers)
 
 --[[ --- modules ----------------------------------------------------------- ]]
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = parsers, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
     --disable = { "c", "rust" },  -- list of language that will be disabled
