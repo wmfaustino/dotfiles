@@ -1,25 +1,18 @@
 lua <<EOF
+--[[ --------------------------------------------------------------------------
+   _                                _       _
+  (_) __ ___   ____ _ ___  ___ _ __(_)_ __ | |_
+  | |/ _` \ \ / / _` / __|/ __| '__| | '_ \| __|
+  | | (_| |\ V / (_| \__ \ (__| |  | | |_) | |_
+ _/ |\__,_| \_/ \__,_|___/\___|_|  |_| .__/ \__|
+|__/                                 |_|
+_
+-----------------------------------------------------------------------------]]
+
+--[[ --- filetype options -------------------------------------------------- ]]
 local lang = 'javascript'
 
+--[[ --- config method ----------------------------------------------------- ]]
 local config_filetype = utils.Filetype.config
-
 config_filetype(lang)
-
--- local utils = require'utils'
--- local set_ale_vars = utils.Ale.set_vars
--- local set_options = utils.Options.set
--- 
--- local options = languages[lang].options
--- 
--- set_ale_vars(lang)
--- set_options(options)
 EOF
-
-" let b:ale_linters = {'javascript': ['tsserver']}
-
-" let b:ale_fixers =  {
-" \   'javascript': [
-" \     'remove_trailing_lines',
-" \     'trim_whitespace'
-" \   ]
-" \}

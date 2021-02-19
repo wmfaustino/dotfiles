@@ -10,7 +10,7 @@ local Helpers    = require('utils.wrappers.Helpers')
 local Options    = require('utils.wrappers.Options')
 local Keymaps    = require('utils.wrappers.Keymaps')
 local Variables  = require('utils.wrappers.Variables')
-local Languages  = require('utils.wrappers.Languages')
+-- local Languages  = require('utils.wrappers.Languages')
 local Ale        = require('utils.wrappers.Ale')
 
 local Lsp        = require('utils.wrappers.Lsp')
@@ -22,7 +22,7 @@ local utils = {
 	['Options'     ] = Options,
 	['Keymaps'     ] = Keymaps,
 	['Variables'   ] = Variables,
-	['Languages'   ] = Languages,
+	-- ['Languages'   ] = Languages,
     [ 'Lsp'        ] = Lsp,
     [ 'Treesitter' ] = Treesitter,
     [ 'Ale'        ] = Ale,

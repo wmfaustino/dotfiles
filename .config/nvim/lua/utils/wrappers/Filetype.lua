@@ -9,22 +9,15 @@
 ==> Methods to setup filetype
 -----------------------------------------------------------------------------]]
 
---[[ --- get all languages and their attributes----------------------------- ]]
-
-local lang = 'javascript'
-
 local Filetype = {}
 
 Filetype.config = function(lang)
--- local utils = require'utils'
-    -- set ale vars
-    utils.Ale.set_vars(lang)
     -- language especific settings
     utils.Options.set(languages[lang].options)
+    -- language especific variables
+    utils.Variables.set(languages[lang].variables)
+    -- set ale vars
+    utils.Ale.set_vars(lang)
 end
 
 return Filetype
--- local options = languages[lang].options
-
--- set_ale_vars(lang)
--- set_options(options)

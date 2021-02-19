@@ -38,7 +38,7 @@ set_variables({
 
     { 'global', "completion_auto_change_source"    , 1            },
     
-    -- { 'global', "completion_confirm_key"           , "<C-y>"      },
+    { 'global', "completion_confirm_key"           , "<C-y>"      },
     
     --possible values: ['exact', 'substring', 'fuzzy', 'all']
     { 'global', "completion_matching_strategy_list", {
