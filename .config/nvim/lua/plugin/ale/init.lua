@@ -19,7 +19,7 @@ utils.Variables.set({
 --[[
 
     * ale_linters and ale_fixers are set individually for each language at
-afte r/ftplugin
+after/ftplugin
     * method to set is defined at lua/utils/wrappers/Languages
     * values to set are defined at lua/languages
 

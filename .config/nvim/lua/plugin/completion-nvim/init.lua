@@ -1,26 +1,22 @@
 --[[ --------------------------------------------------------------------------
-                           _      _   _                              _ 
+_                          _      _   _                              _ 
   ___ ___  _ __ ___  _ __ | | ___| |_(_) ___  _ __        _ ____   _(_) _ __ ___  
  / __/ _ \| '_ ` _ \| '_ \| |/ _ \ __| |/ _ \| '_ \ _____| '_ \ \ / / || '_ ` _ \ 
 | (_| (_) | | | | | | |_) | |  __/ |_| | (_) | | | |_____| | | \ V /| || | | | | |
  \___\___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|     |_| |_|\_/ |_||_| |_| |_|
-                    |_|                                                
-
+_                   |_|                                                
+_
 ==> completion-nvim config
 ==> https://github.com/nvim-lua/completion-nvim
 -----------------------------------------------------------------------------]]
 
 --[[ --- nvim-completion autocommands -------------------------------------- ]]
--- local utils = require'utils'
-local Lsp   = utils.Lsp
-
 local on_attach = require'completion'.on_attach
-Lsp.on_attach(on_attach)
+
+utils.Lsp.on_attach(on_attach)
 
 --[[ --- nvim-completion variables ----------------------------------------- ]]
-local set_variables = utils.Variables.set
-
-set_variables({
+utils.Variables.set({
 
     -- By default auto popup is enabled,
     { 'global', 'completion_enable_auto_popup'     , 1            },
@@ -50,9 +46,7 @@ set_variables({
 })
 
 --[[ --- nvim-completion settings ------------------------------------------ ]]
-local set_options = utils.Options.set
-
-set_options({
+utils.Options.set({
 
     -- Set completeopt to have a better completion experience
     { 'global', 'completeopt', 'menuone,noinsert,noselect' },
@@ -69,8 +63,7 @@ set_options({
 local opts   = { noremap = true, expr = true }
 local silent = { silent  = true }
 
-local set_keybinding = utils.Keymaps.set
-set_keybinding({
+utils.Keymaps.set({
 
     -- Use <Tab> and <S-Tab> to navigate through popup menu
     { 'global', 'i', '<tab>'  , 'pumvisible() ? "<C-n>" : "<tab>"', opts   },

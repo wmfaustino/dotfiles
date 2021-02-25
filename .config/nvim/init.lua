@@ -6,7 +6,6 @@
 |_|_| |_|_|\__|  \__,_|\___/ \__| |_|\__,_|\__,_|
 
 ==> nvim configuration written in lua
-
 ------------------------------------------
 
 AUTHOR : Wilson Morais Faustino
@@ -28,7 +27,7 @@ vim.cmd 'packadd paq-nvim'
 local paq = require'paq-nvim'.paq
 
 -- Let Paq manage itself ------------------------------------------------------
-paq{'savq/paq-nvim', opt=true}
+paq{ 'savq/paq-nvim', opt = true }
 
 -- Add your packages ----------------------------------------------------------
 
@@ -42,8 +41,9 @@ paq 'Shougo/neosnippet-snippets'
 -- paq 'nvim-lua/lsp_extensions.nvim'
 
 --[[ --- treesitter -------------------------------------------------------- ]]
-paq { 'nvim-treesitter/nvim-treesitter'}
+paq 'nvim-treesitter/nvim-treesitter'
 --, hook=vim.cmd[':TSUpdate'] } -- We recommend updating the parsers on update
+-- Ps: nvim-treesitter config file updates parsers
 
 --[[ --- telescope --------------------------------------------------------- ]]
 paq 'nvim-lua/popup.nvim'
@@ -69,9 +69,7 @@ paq 'mbbill/undotree'
 
 --[[ ---  ------------------------------------------------------------------ ]]
 paq 'tpope/vim-surround'
--- paq 'rstacruz/vim-closer' -- Closes brackets. Only works when you press Enter.
--- paq 'jiangmiao/auto-pairs'
--- paq 'cohama/lexima.vim'
+paq 'jiangmiao/auto-pairs'
 paq 'tpope/vim-commentary'
 paq 'Yggdroot/indentLine'    -- Show the visual mark on indendation blocks ┆
 -- paq 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -85,4 +83,4 @@ paq 'tweekmonster/startuptime.vim'
 
 -------------------------------------------------------------------------------
 
-require('init')
+require 'init'
