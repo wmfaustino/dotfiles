@@ -23,7 +23,7 @@ NVIM_REPO="https://github.com/neovim/neovim"
 BUILD_DEST="$HOME/.local/build/neovim"
 
 # https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites
-declare -a BUILD_DEPS=(
+declare -a DEPS_BUILD=(
     "ninja-build"
     "gettext"
     "libtool"
@@ -35,11 +35,46 @@ declare -a BUILD_DEPS=(
     "pkg-config"
     "unzip"
 )
+declare -a DEPS_APT=(
+	"git"
+	"curl"
+	"tar"
+	"libstdc++"
+	"shellcheck"
+	"fd-find"
+	"ripgrep"
+)
+declare -a DEPS_NPM=(
+	"tserver"
+	"typescript"
+	"typescript-language-server"
+	"pyright"
+	"bash-language-server"
+	"vim-language-server"
+)
+
+
+exit
+declare -a DEPS_PIP=(
+	"flake8"
+)
+declare -a DEPS_CARGO=(
+	"bat"
+)
+declare -a DEPS_GOLANG=(
+	"GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt https://github.com/mvdan/sh"
+)
+
+sudo apt install "${DEPS_BUILD[@]}"
+sudo apt install "${DEPS_APT[@]}"
+# npm install -g "${DEPS_NPM[@]}"
+# python -m pip install "${DEPS_PIP[@]}"
+# cargo install --locked "${DEPS_CARGO[@]}"
 
 build_neovim()(
 
     rm -rf /tmp/neovim
-    
+
     cd /tmp
     git clone "$NVIM_REPO"
     cd /tmp/neovim
