@@ -46,7 +46,7 @@ all_langs['sh'] = {
         [ 'dependencies' ] = { 'bash-language-server', 'shellcheck', 'shfmt'},
         [ 'server'       ] = { 'bashls'                                     },
     },
-    [ 'treesitter'   ] = { 'bash'                                           },
+    [ 'treesitter'   ] = { 'bash',                                          },
     [ 'ale'          ] = {
         [ 'ale_linters'  ] = { 'language_server', 'shell', 'shellcheck'     },
         [ 'ale_fixers'   ] = {

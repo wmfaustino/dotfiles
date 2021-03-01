@@ -59,6 +59,8 @@ paq 'itchyny/lightline.vim'
 
 --[[ --- color schemes ----------------------------------------------------- ]]
 paq 'dikiaap/minimalist'
+-- paq 'tjdevries/colorbuddy.vim'
+-- paq 'tjdevries/gruvbuddy.nvim'
 
 --[[ --- file tree --------------------------------------------------------- ]]
 paq 'kyazdani42/nvim-web-devicons' -- for file icons

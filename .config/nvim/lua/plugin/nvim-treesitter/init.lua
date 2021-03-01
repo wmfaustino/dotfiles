@@ -8,7 +8,6 @@
 ==> nvim-treesitter config
 ==> https://github.com/nvim-treesitter/nvim-treesitter
 -----------------------------------------------------------------------------]]
-local parsers = utils.Treesitter.parsers
 
 --[[ --- update all parsers ------------------------------------------------ ]]
 require'nvim-treesitter.install'.commands.TSUpdate.run()

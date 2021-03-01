@@ -30,9 +30,17 @@ Treesitter.get_parsers = function(all_langs)
     return parsers
 end
 
+Treesitter.install_parsers = function(parsers)
+
+	for _, parser in pairs(parsers) do
+		require'nvim-treesitter.install'.commands.TSInstall.run(parser)
+	end
+end
 -------------------------------------------------------------------------------
 Treesitter.parsers = Treesitter.get_parsers(all_langs)
 -------------------------------------------------------------------------------
+-- Treesitter.install_parsers(Treesitter.parsers)
+
 --[[
 Treesitter.call_parsers_method = function(method, parsers)
     

@@ -9,10 +9,9 @@ lua <<EOF
 _
 -----------------------------------------------------------------------------]]
 
---[[ --- filetype options -------------------------------------------------- ]]
+--[[ --- Language ---------------------------------------------------------- ]]
 local lang = 'javascript'
 
 --[[ --- config method ----------------------------------------------------- ]]
-local config_filetype = utils.Filetype.config
-config_filetype(lang)
+utils.Filetype.config(lang)
 EOF
