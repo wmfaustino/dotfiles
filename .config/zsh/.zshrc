@@ -18,6 +18,7 @@ fi
 
 #-----[ Basic Setup ]-----+
 typeset -U path # man zshbuiltins: "keep only the first occurrence of each duplicated value" 
+# typeset -gU cdpath fpath mailpath path
 
 _comp_options+=(globdots) # Include hidden files.
 setopt autocd
@@ -49,6 +50,11 @@ zstyle ':completion:*' menu select=0
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename "~/.config/zsh/.zshrc"
 
+#-----[ asdf ]-----+
+. $HOME/.asdf/asdf.sh
+# append asdf completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+
 #-----[ History ]-----+
 HISTFILE="${USER_CACHE}/zsh_history"
 HISTSIZE=20000
@@ -67,7 +73,8 @@ ALIASES=(
   ls='ls --color=auto'
   l='ls --color=auto'
   grep='grep --color=auto'
-  ssid='sudo iw dev wlp2s0b1 info' # sudo iwconfig | grep ESSID
+  ssid='sudo iw dev wlp0s20f3 info' # sudo iwconfig | grep ESSID
+  purgar="sudo apt purge $(dpkg -l | grep ^rc | tr '\n' ' ')"
 )
 
 for _alias in "${ALIASES[@]}"; do
@@ -80,12 +87,6 @@ done
 # support colors in less ------------------------
 #[[ ! -r "${ZDOTDIR}" ]] || source 
 
-# --- asdf
-ASDF_DATA_DIR=/home/wmf/.asdf
-
-. $ASDF_DATA_DIR/asdf.sh
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit

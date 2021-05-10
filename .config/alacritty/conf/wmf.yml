@@ -1,0 +1,61 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 4
+    y: 4
+  
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 10000
+
+# Font configuration
+font:
+  
+  normal:
+    family: FiraMono Nerd Font 
+    style: Regular
+  bold:
+    family: FiraMono Nerd Font 
+    style: Bold
+  italic:
+    family: FiraMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraMono Nerd Font 
+    style: Bold Italic
+  
+  size: 10.0
+  offset:
+    x: 0
+    y: 0
+
+
+
+
+# ...
+
+# Colors ()
+import:
+  - ./colors/omni.yml
+
+# Visual Bell
+# ...
+
+  #key_bindings:
+  #  # (Windows, Linux, and BSD only)
+  #  - { key: P,        mods: Control,       action: Paste            }
+  #  - { key: Insert,   mods: Shift,         action: Paste            }
+  #  - { key: Slash,    mods: Control,       chars: "gc"              }
+  # #- { key: T,        mods: Control,       command: "alacritty"     }
+  #  - { key: Y,        mods: Control,       action: Copy             }
+  #  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  #  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  #  - { key: Add,      mods: Control,       action: IncreaseFontSize }
+  #  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  #  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
